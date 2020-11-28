@@ -9,13 +9,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @item = Item.new(post_params)
+    @post = Post.new(post_params)
     @post.valid?
     if @post.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
