@@ -6,9 +6,7 @@ class User < ApplicationRecord
 
          validates :email,           format: { with: /@/}
          validates :password,        length: { minimum: 6 }, confirmation: true,  format: { with: /\A[a-zA-Z0-9]+\z/ }
-    
-         with_options presence: true do      
-          validates :name        
-          validates :profile
-        end
+
+         validates :name, presence: true
+         validates :profile, presence: true
 end
